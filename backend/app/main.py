@@ -19,8 +19,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.on_event("startup")
+def startup():
+    Base.metadata.create_all(bind=engine)
+
+
 security = HTTPBearer(auto_error=True)
-Base.metadata.create_all(bind=engine)
+
+
 
 
 STORAGE_DIR = Path("storage")
