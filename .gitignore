@@ -1,0 +1,21 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/storage/
+*.pyc
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Env
+.env
+frontend/.env
+backend/.env
+
+# OS / editor
+.DS_Store
+.vscode/
+
+# Docker
+postgres-data/
