@@ -1,7 +1,7 @@
 from pathlib import Path
 import shutil
 import uuid
-
+from .config import settings
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File as FastAPIFile
 from fastapi.responses import FileResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 
-from .config import settings
+
 from .db import Base, engine, get_db
 from .models import User, File
 from .security import hash_password, verify_password, create_access_token, decode_token
@@ -33,8 +33,6 @@ security = HTTPBearer(auto_error=True)
 STORAGE_DIR = Path("storage")
 STORAGE_DIR.mkdir(exist_ok=True)
 
-STORAGE_DIR = Path("storage")
-STORAGE_DIR.mkdir(exist_ok=True)
 
 
 class RegisterIn(BaseModel):
