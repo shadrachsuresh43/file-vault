@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+  }
+  
+  a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  button,
+  input {
+    font: inherit;
+  }
+  
+  .page-center {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .form-stack {
+    display: grid;
+    gap: 16px;
+  }
+  
+  .form-stack label {
+    display: grid;
+    gap: 8px;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="file"] {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+  }
+  
+  button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .error {
+    color: #b91c1c;
+  }
+  
+  .success {
+    color: #15803d;
+  }
+  
+  .dashboard-page {
+    padding: 24px;
+    display: grid;
+    gap: 24px;
+  }
+  
+  .dashboard-header {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .upload-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .file-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+  
+  .file-table th,
+  .file-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+  }

@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16
+    container_name: filevault_db
+    environment:
+      POSTGRES_USER: filevault
+      POSTGRES_PASSWORD: filevaultpw
+      POSTGRES_DB: filevault
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: filevault_backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://filevault:filevaultpw@db:5432/filevault
+      JWT_SECRET: dev-secret-change-me
+      JWT_ALG: HS256
+      ACCESS_TOKEN_MINUTES: 30
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: filevault_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
