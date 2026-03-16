@@ -12,9 +12,10 @@ from .db import Base, engine, get_db
 from .models import User, File
 from .security import hash_password, verify_password, create_access_token, decode_token
 app = FastAPI(title="File Vault API")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[origin.strip() for origin in settings.CORS_ORIGINS.split(",")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -23,7 +24,6 @@ app.add_middleware(
 @app.on_event("startup")
 def startup():
     Base.metadata.create_all(bind=engine)
-
 
 security = HTTPBearer(auto_error=True)
 
