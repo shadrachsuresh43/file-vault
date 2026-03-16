@@ -7,6 +7,10 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_MINUTES: int = 30
     CORS_ORIGINS: str = "http://localhost:5173"
 
+    AWS_REGION: str = "us-east-1"
+    S3_BUCKET_NAME: str = ""
+    USE_S3: bool = False
+
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 settings = Settings()
